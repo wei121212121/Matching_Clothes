@@ -1,0 +1,23 @@
+name: 功能建议
+description: 提议通用的流程、界面或匹配优化
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 请描述实际工作流中的痛点。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+    validations:
+      required: true
+  - type: textarea
+    id: generalization
+    attributes:
+      label: 通用性说明
+      description: 说明该建议如何适用于不同图库，而非某个固定款号。

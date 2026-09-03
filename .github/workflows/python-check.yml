@@ -1,0 +1,21 @@
+name: Python check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile maintained V8 sources
+        shell: pwsh
+        run: python -m py_compile clothing_matcher_v8_ui_alt/app.py clothing_matcher_v8_ui_alt/engine.py clothing_matcher_v8_ui_alt/verify_imports.py clothing_matcher_v8_ui_alt/verify_export.py clothing_matcher_v8_ui_alt/verify_v8.py

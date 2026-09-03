@@ -1,0 +1,39 @@
+name: Bug 报告
+description: 报告可复现的程序问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: 请先移除截图中的人物、门店、订单、私人路径等敏感信息。
+  - type: input
+    id: version
+    attributes:
+      label: 版本与运行方式
+      placeholder: V8 源码版 / 打包版，Python 版本
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: 1. 选择图库… 2. 导入图片… 3. 点击…
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 已脱敏日志或截图
+      description: 不要上传真实图库、实拍图、Token 或私人网盘链接。

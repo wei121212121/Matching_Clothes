@@ -1,0 +1,32 @@
+# Python caches and local verification output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+**/.testdata*/
+**/.verification/
+
+# PyInstaller build products (regenerate with build.ps1)
+**/build/
+**/dist/
+
+# Large local ML models (keep a copy in cloud storage or use Git LFS separately)
+**/models/*.onnx
+**/models/*.pt
+**/models/*.torchscript
+**/models/*.bin
+
+# Local clothing image libraries and generated matching results
+2026短袖/
+2026短袖 测试/
+标注结果/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+*.log

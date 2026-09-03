@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密安全报告
+    url: https://github.com/wei121212121/Matching_Clothes/security/advisories/new
+    about: 请在这里私下报告安全或隐私问题。

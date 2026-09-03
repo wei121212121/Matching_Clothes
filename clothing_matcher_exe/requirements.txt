@@ -1,0 +1,6 @@
+numpy
+Pillow
+onnxruntime
+rapidocr_onnxruntime
+pyinstaller
+tkinterdnd2==0.4.3
