@@ -19,6 +19,10 @@
 
 ## 快速开始
 
+### Windows 免安装版
+
+不想安装 Python 时，可从 [Windows v8.3 发布页](https://github.com/wei121212121/Matching_Clothes/releases/tag/v8.3-windows) 下载 ZIP，完整解压后双击 `ClothingMatcher_v8_对比界面版_v3.exe`。模型、OCR 组件和合成演示数据均已包含，不能只把 EXE 单独复制出来运行。
+
 ### 1. 环境
 
 - Windows 10/11

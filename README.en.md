@@ -19,6 +19,10 @@ The application runs locally by default. Garment libraries, store photos, and re
 
 ## Quick Start
 
+### Portable Windows build
+
+To run without installing Python, download the ZIP from the [Windows v8.3 release](https://github.com/wei121212121/Matching_Clothes/releases/tag/v8.3-windows), extract the entire archive, and double-click `ClothingMatcher_v8_对比界面版_v3.exe`. The model, OCR components, and synthetic demo are included; do not copy the EXE away from its `_internal` directory.
+
 ### Requirements
 
 - Windows 10 or 11

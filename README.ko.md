@@ -19,6 +19,10 @@ Matching Clothes는 매장 실사 사진을 바탕으로 변경 가능한 로컬
 
 ## 빠른 시작
 
+### Windows 무설치 버전
+
+Python 설치 없이 사용하려면 [Windows v8.3 릴리스](https://github.com/wei121212121/Matching_Clothes/releases/tag/v8.3-windows)에서 ZIP을 내려받아 전체 압축을 푼 뒤 `ClothingMatcher_v8_对比界面版_v3.exe`를 실행하십시오. 모델, OCR 구성 요소와 합성 데모가 포함되어 있으므로 EXE만 `_internal` 폴더와 분리하면 안 됩니다.
+
 ### 요구 사항
 
 - Windows 10 또는 11
