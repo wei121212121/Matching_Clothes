@@ -35,9 +35,24 @@ pip install -r requirements.txt
 python app.py
 ```
 
-没有 ONNX 模型时程序仍可使用内置轻量视觉特征启动，但候选精度会明显下降。推荐把合法取得的 `sscd_disc_mixup.onnx` 放入 `clothing_matcher_v8_ui_alt/models/`。模型文件较大且授权需由使用者自行确认，因此不包含在本仓库中。
+没有 ONNX 模型时程序仍可使用内置轻量视觉特征启动，但候选精度会明显下降。项目把约 94 MB 的兼容模型作为独立的 [GitHub Release 资源](https://github.com/wei121212121/Matching_Clothes/releases/tag/model-v1) 提供，避免把大文件写入 Git 历史。可在仓库根目录运行以下命令自动下载、校验 SHA-256，并放到正确位置：
 
-### 2. 第一次使用
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\download_model.ps1
+```
+
+模型来源、许可证、文件校验值和手动安装方法见 [模型说明](docs/模型说明.md) 与 [第三方声明](THIRD_PARTY_NOTICES.md)。
+
+### 2. 用公开示例试跑
+
+仓库包含一套完全合成的 [演示数据](examples/README.md)，不含真实业务图片或私人信息：
+
+1. 把 `examples/style_library` 选为“款式图库”。
+2. 另建一个空文件夹作为“结果目录”，点击“建立/更新索引”。
+3. 导入 `examples/store_photos`，点击“分析新照片（F5）”。
+4. 将候选结果与 `examples/expected_matches.csv` 对照。
+
+### 3. 第一次使用
 
 1. 选择“款式图库”和“结果目录”。
 2. 点击“建立/更新索引”。
@@ -72,6 +87,8 @@ Matching_Clothes/
 │  └─ verify_*.py               # 本地验证脚本
 ├─ clothing_matcher_exe/        # 历史版本，保留用于回溯
 ├─ clothing-stock-match/        # Codex 操作工作流
+├─ examples/                    # 可公开试跑的合成图库、实拍图和预期结果
+├─ scripts/                     # 模型下载等辅助脚本
 ├─ docs/                        # 使用、开发和模型说明
 └─ AGENTS.md                    # Codex 项目级约束
 ```
@@ -82,7 +99,7 @@ Matching_Clothes/
 
 - 原始款式图库和门店实拍图；
 - 生成的标注结果、索引和本地学习记录；
-- ONNX/PT/TorchScript 模型；
+- ONNX/PT/TorchScript 模型（兼容模型只作为独立 Release 资源发布，不进入 Git 历史）；
 - `build/`、`dist/`、缓存和虚拟环境；
 - 访问令牌、账号信息和其他密钥。
 

@@ -23,6 +23,7 @@ venv/
 2026短袖/
 2026短袖 测试/
 标注结果/
+examples/output/
 
 # Editor and operating-system files
 .vscode/

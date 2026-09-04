@@ -35,7 +35,22 @@ pip install -r requirements.txt
 python app.py
 ```
 
-ONNX 모델이 없어도 내장된 경량 시각 특징 모드로 실행할 수 있지만 후보 정확도는 낮아집니다. 최적화된 방식은 합법적으로 확보한 `sscd_disc_mixup.onnx`를 `clothing_matcher_v8_ui_alt/models/`에 넣어 사용합니다. 모델 파일은 용량이 크고 별도 라이선스가 있을 수 있어 이 저장소에 포함하지 않습니다.
+ONNX 모델이 없어도 내장된 경량 시각 특징 모드로 실행할 수 있지만 후보 정확도는 낮아집니다. 약 94MB의 호환 모델은 Git 기록에 대용량 파일을 넣지 않도록 별도의 [GitHub Release 파일](https://github.com/wei121212121/Matching_Clothes/releases/tag/model-v1)로 제공합니다. 저장소 루트에서 다음 명령을 실행하면 모델을 올바른 위치에 다운로드하고 SHA-256을 검증합니다.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\download_model.ps1
+```
+
+출처, 라이선스, 체크섬 및 수동 설치 방법은 [모델 설명](docs/模型说明.md)과 [제3자 고지](THIRD_PARTY_NOTICES.md)를 확인하십시오.
+
+### 공개 데모 실행
+
+저장소에는 실제 업무 사진이나 개인정보가 없는 완전 합성 [데모 데이터](examples/README.md)가 포함됩니다.
+
+1. `examples/style_library`를 상품 이미지 라이브러리로 선택합니다.
+2. 새 빈 폴더를 결과 폴더로 선택하고 인덱스를 생성하거나 업데이트합니다.
+3. `examples/store_photos`를 가져온 뒤 **새 사진 분석(F5)**을 누릅니다.
+4. 후보 순위를 `examples/expected_matches.csv`와 비교합니다.
 
 ### 첫 실행 순서
 
@@ -89,6 +104,8 @@ Matching_Clothes/
 │  └─ verify_*.py               # 로컬 검증 스크립트
 ├─ clothing_matcher_exe/        # 이전 버전 참고용 코드
 ├─ clothing-stock-match/        # Codex 작업 절차
+├─ examples/                    # 공개 합성 라이브러리, 실사형 입력, 예상 결과
+├─ scripts/                     # 모델 다운로드 및 보조 스크립트
 ├─ docs/                        # 중국어 사용자 및 개발 문서
 └─ AGENTS.md                    # Codex 프로젝트 규칙
 ```
@@ -109,7 +126,7 @@ python verify_imports.py
 python verify_export.py
 ```
 
-전체 검증 스크립트는 공개 저장소에 포함되지 않은 로컬 테스트 이미지 라이브러리 또는 샘플 사진을 사용합니다. 구조와 배포 절차는 중국어 [개발 및 패키징 문서](docs/开发与打包.md)를 참고하십시오.
+공개 스모크 테스트용 소형 합성 데모는 저장소에 포함되어 있습니다. 일부 전체 검증 사례는 공개 저장소에 포함되지 않은 더 큰 로컬 테스트 라이브러리가 필요합니다. 구조와 배포 절차는 중국어 [개발 및 패키징 문서](docs/开发与打包.md)를 참고하십시오.
 
 ## 정확도 한계
 

@@ -35,7 +35,22 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The application can start without an ONNX model by using its built-in lightweight visual descriptor, but candidate accuracy will be lower. For the optimized pipeline, place a legally obtained `sscd_disc_mixup.onnx` file in `clothing_matcher_v8_ui_alt/models/`. Model weights are not included because of their size and separate licensing requirements.
+The application can start without an ONNX model by using its built-in lightweight visual descriptor, but candidate accuracy will be lower. A compatible model of about 94 MB is distributed as a separate [GitHub Release asset](https://github.com/wei121212121/Matching_Clothes/releases/tag/model-v1), keeping the large binary out of Git history. From the repository root, download it to the expected location and verify its SHA-256 checksum with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\download_model.ps1
+```
+
+See the [model notes](docs/模型说明.md) and [third-party notices](THIRD_PARTY_NOTICES.md) for provenance, licensing, checksum, and manual installation.
+
+### Public Demo
+
+The repository includes a fully synthetic [demo dataset](examples/README.md) with no production photos or private information:
+
+1. Select `examples/style_library` as the style library.
+2. Select a new empty folder as the output directory, then build or update the index.
+3. Import `examples/store_photos` and click **Analyze New Photos (F5)**.
+4. Compare the ranked candidates with `examples/expected_matches.csv`.
 
 ### First Run
 
@@ -89,6 +104,8 @@ Matching_Clothes/
 │  └─ verify_*.py               # Local verification scripts
 ├─ clothing_matcher_exe/        # Historical versions for reference
 ├─ clothing-stock-match/        # Codex operational workflow
+├─ examples/                    # Public synthetic library, queries, and expected matches
+├─ scripts/                     # Model download and helper scripts
 ├─ docs/                        # Chinese user and developer documentation
 └─ AGENTS.md                    # Project-level Codex constraints
 ```
@@ -109,7 +126,7 @@ python verify_imports.py
 python verify_export.py
 ```
 
-The full verification scripts use local test libraries or sample photos that are intentionally not included in the public repository. See the Chinese [development and packaging guide](docs/开发与打包.md) for architecture and release details.
+The repository includes a small synthetic demo for public smoke testing. Some full verification cases still require larger local test libraries that are intentionally not included. See the Chinese [development and packaging guide](docs/开发与打包.md) for architecture and release details.
 
 ## Accuracy Boundaries
 
